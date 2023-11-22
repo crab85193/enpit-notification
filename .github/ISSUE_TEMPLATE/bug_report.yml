@@ -1,0 +1,22 @@
+name: Bug Report
+description: バグに関するIssueのテンプレート
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: どのような問題が発生しましたか？
+      placeholder: 問題が発生した時の情報を記述して下さい。
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 関連するログの出力
+      description: 関連するログ出力をコピー＆ペーストしてください。これは自動的にコードにフォーマットされますので、バックティックは必要ありません。
+      render: shell

@@ -1,0 +1,22 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          name: id_github_actions_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          config: ${{ secrets.SSH_CONFIG }}
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Deploy with rsync
+        run: |
+          ls -a
+          rsync -auvPz ./ ${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/enpit-notification/
+          ssh ${{ secrets.SSH_HOST }} 'cd /home/$USER/enpit-notification; bash ./shell/setup.sh'

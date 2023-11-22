@@ -1,0 +1,33 @@
+name: Feature Request
+description: 新機能に関するIssueのテンプレート
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes: 
+      value: |
+        Thanks for suggesting the new feature!
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: 新機能を実装する目的について記述して下さい
+      placeholder: ご記入ください
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: やること
+      description: 新機能を実装する上で取り組みことを記述して下さい
+      placeholder: |
+        * 〇〇を実装する
+        * 〇〇を作成する
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: その他伝達事項
+      description: 注意事項や伝達事項、メモがあれば記述して下さい
+    validations:
+      required: false
